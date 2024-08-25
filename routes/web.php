@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Feature1Controller;
+use App\Http\Controllers\Feature2Controller;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -23,5 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/feature1', [Feature1Controller::class, 'index'])->name('feature1.index');
+Route::post('/feature1/calculate', [Feature1Controller::class, 'calculate'])->name('feature1.calculate');
+
 
 require __DIR__.'/auth.php';
