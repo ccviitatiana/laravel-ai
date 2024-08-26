@@ -15,7 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'lol@lol.com',
+            'password' => bcrypt('password'),
+        ]);
 
         User::factory()->create([
             'name' => 'Test User',
@@ -28,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'route_name' => 'feature1.index',
             'name' => 'whatever',
             'description' => 'LOL',
-            'required_credits' => 1,
+            'required_credits' => 4,
             'active' => true,
         ]);
 

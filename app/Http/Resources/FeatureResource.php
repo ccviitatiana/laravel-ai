@@ -21,7 +21,7 @@ class FeatureResource extends JsonResource
             'route_name' => $this->route_name,
             'name' => $this->name,
             'description' => $this->description,
-            'required-credits' => $this->required_credits,
+            'required_credits' => $this->required_credits,
             'active' => $this->active
         ];
     }

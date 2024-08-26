@@ -4,7 +4,9 @@ import { Head, Link, usePage } from "@inertiajs/react";
 export default function Feature({ feature, answer, children }) {
     const { auth } = usePage().props;
 
-    const availableCredits = auth.user.availableCredits;
+    const availableCredits = auth.user.avaliable_credits;
+    console.log(auth.user, availableCredits, parseInt(feature.required_credits))
+
 
     return (
         <>
@@ -12,21 +14,21 @@ export default function Feature({ feature, answer, children }) {
                 user={auth.user}
                 header={
                     <h2 className="font-semibold text-xl text-black dark:text-gray-200 leading-tight">
-                        {feature.name}
+                        {feature.name ? feature.name : 'No feature name'}
                     </h2>
                 }
             >
                 <Head title="Feature 1" />
-                <div className="py-12">
+                <div className="py-12  flex items-center justify-center w-full">
                     <div className="max-w-7xl">
                         {answer ? (
                             <div className="mb-3 py-3 px-5 rounded-2xl text-white bg-indigo-600">
                                 Result of calculation: {answer}
                             </div>
-                        ) : null}
-                        <div className="bg-white dark:bg-black overflow-hidden shadow-2xl  2xl:rounded-2xl relative">
+                        ) : 'No answer'}
+                        <div className="bg-white dark:bg-black overflow-hidden shadow-2xl rounded-3xl 2xl:rounded-2xl relative">
                             {availableCredits ? (
-                                feature.required_credits > availableCredits ? (
+                                parseInt(feature.required_credits) > availableCredits ? (
                                     <div className="absolute left-0 top-0 right-0 bottom-0 z-20 flex flex-col items-center justify-center bg-white/70 gap-3">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -53,12 +55,12 @@ export default function Feature({ feature, answer, children }) {
                                             </Link>{" "}
                                         </div>
                                     </div>
-                                ) : null
-                            ) : null}
+                                ) : 'Somehow you have credits avaliable for this feature'
+                            ) : 'No avaliable credits'}
                             <div className="p-8 text-gray-400 border-b pb-4">
-                                <p>{feature.description}</p>
+                                <p>{feature.description ? 'LLLL' : 'que'}</p>
                                 <p className="text-sm text-right font-bold">
-                                    Requires {feature.required_credits} credits
+                                Requires {feature.required_credits ? feature.required_credits : 'N/A'} credits
                                 </p>
                             </div>
                             {children}

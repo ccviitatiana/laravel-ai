@@ -6,6 +6,8 @@ use App\Models\Feature;
 use App\Http\Resources\FeatureResource;
 use App\Models\UsedFeature;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class Feature1Controller extends Controller
 {
@@ -17,7 +19,7 @@ class Feature1Controller extends Controller
     }
     public function index()
     {
-        return inertia('Feature1/Index', [
+        return Inertia('Feature1/Index', [
             'feature' => new FeatureResource($this->feature),
             'answer' => session('answer')
         ]);
@@ -34,6 +36,7 @@ class Feature1Controller extends Controller
             'number1' => ['required', 'numeric'],
             'number2' => ['required', 'numeric']
         ]);
+        
         $number1 = (float) $data['number1'];
         $number2 = (float) $data['number2'];
 

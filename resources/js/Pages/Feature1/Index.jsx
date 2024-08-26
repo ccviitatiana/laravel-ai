@@ -18,6 +18,9 @@ export default function Index({ feature, answer }) {
             onSuccess() {
                 reset();
             },
+            onError(errors) {
+                console.log(errors); // To check if the errors are correctly populated
+            },
         });
     };
     return (
@@ -33,7 +36,7 @@ export default function Index({ feature, answer }) {
                         className="mt-1 block w-full"
                         onChange={(e) => setData("number1", e.target.value)}
                     />
-                    <InputError message={error.number1} className="mt-2" />
+                    <InputError message={error?.number1} className="mt-2" />
                 </div>
                 <div className="">
                     <InputLabel htmlFor="number2" value="Number 2" />
@@ -45,7 +48,7 @@ export default function Index({ feature, answer }) {
                         className="mt-1 block w-full"
                         onChange={(e) => setData("number2", e.target.value)}
                     />
-                    <InputError message={error.number2} className="mt-2" />{" "}
+                    <InputError message={error?.number2} className="mt-2" />
                 </div>
                 <div className="flex items-center justify-end mt-4 col-span-2">
                     <PrimaryButton className="ms-4" disabled={processing}>
