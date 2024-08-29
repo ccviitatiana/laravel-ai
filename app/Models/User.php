@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 #[ObservedBy(UserObserver::class)]
 
@@ -24,8 +25,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'avaliable_credits'
+        'available_credits'
     ];
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -50,8 +55,24 @@ class User extends Authenticatable
         ];
     }
 
-    public function decreasedCredits(int $credits): self {
-        $this->avaliable_credits -= $credits;
+        /**
+     * Boot function from Laravel.
+     */
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     // Automatically generate UUID for the id field
+    //     static::creating(function ($model) {
+    //         if (empty($model->{$model->getKeyName()})) {
+    //             $model->{$model->getKeyName()} = (string) Str::uuid();
+    //         }
+    //     });
+    // }
+
+    public function decreasedCredits(int $credits): self
+    {
+        $this->available_credits -= $credits;
         $this->save();
         return $this;
     }

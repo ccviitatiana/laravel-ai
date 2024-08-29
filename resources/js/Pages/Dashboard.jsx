@@ -24,6 +24,7 @@ export default function Dashboard({ auth }) {
                             ˖💀ྀིྀིྀིྀིྀི🪬🗡╾━╤デ╦︻𓊆ྀི❤︎𓊇ྀི≽^•⩊•^≼✮⋆˙ ☠︎︎ ★☠︎
                             ✮⋆˙⛧☾༺♰༻☽⛧⁺‧₊˚ ཐི⋆♱⋆ཋྀ
                             ˚₊‧⁺𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃⫘⫘⫘≽^•⩊•^≼.˳·˖✶𓆩𓁺𓆪✶˖·˳./𝟑�𒈔𒅒𒇫𒄆」
+                            {console.log("lol", auth.user)}
                         </div>
                     </div>
                 </div>

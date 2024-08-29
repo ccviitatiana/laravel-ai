@@ -11,7 +11,7 @@ class UserObserver
      */
     public function created(User $user): void
     {
-        $user->avaliable_credits = 10;
+        $user->available_credits = 10;
     }
     /**
      * Handle the User "updated" event.

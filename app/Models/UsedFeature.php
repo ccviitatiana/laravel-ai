@@ -15,6 +15,9 @@ class UsedFeature extends Model
         'credits'
     ];
 
+    public $incrementing = false;
+
+
     public function casts(): array {
         return [
             'data' => 'array',

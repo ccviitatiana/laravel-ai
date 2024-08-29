@@ -108,6 +108,8 @@ services:
             - "11434:11434" # Example port for Ollama API
         networks:
             - sail
+        # command: "pull qwen2:1.5b"
+
 networks:
     sail:
         driver: bridge

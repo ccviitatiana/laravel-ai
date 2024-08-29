@@ -17,4 +17,7 @@ class Feature extends Model
         'required_credits',
         'active'
     ];
+
+    public $incrementing = false;
+
 }

@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('used_features', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->integer('credits');
-            $table->foreignId('feature_id')->constrained('features');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignUuid('feature_id')->references('id')->on('features')->onDelete('cascade');
+            $table->foreignUuid('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->jsonb('data')->nullable();
             $table->timestamps();
         });

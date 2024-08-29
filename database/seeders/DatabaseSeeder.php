@@ -7,6 +7,7 @@ use App\Models\Package;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,18 +17,14 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
+            'id' => (string) Str::uuid(),
             'name' => 'Admin User',
             'email' => 'lol@lol.com',
             'password' => bcrypt('password'),
         ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => bcrypt('yuta'),
-        ]);
-
         Feature::factory()->create([
+            'id' => (string) Str::uuid(),
             'image' => 'https://i.pinimg.com/564x/47/26/13/472613fcb8d829260838a2632dcdb17e.jpg',
             'route_name' => 'feature1.index',
             'name' => 'whatever',
@@ -37,6 +34,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Feature::factory()->create([
+            'id' => (string) Str::uuid(),
             'image' => 'https://i.pinimg.com/736x/1c/27/1b/1c271b8a08ac05ff3c8579019b77f560.jpg',
             'route_name' => 'feature2.index',
             'name' => 'check the cats go',
