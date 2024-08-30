@@ -25,31 +25,4 @@ class Feature2Controller extends Controller
             'answer' => session('answer')
         ]);
     }
-
-    public function calculate(Request $request)
-    {
-        $user = $request->user();
-        if ($user->available_credits < $this->feature->required_credits) {
-            return back()->withErrors(['error' => 'Not enough credits.']);
-        }
-
-        $data = $request->validate([
-            'number1' => ['required', 'numeric'],
-            'number2' => ['required', 'numeric']
-        ]);
-
-        $number1 = (float) $data['number1'];
-        $number2 = (float) $data['number2'];
-
-        $user->decreasedCredits($this->feature->required_credits);
-
-        UsedFeature::create([
-            'feature_id' => $this->feature->id,
-            'user_id' => $user->id,
-            'credits' => $this->feature->required_credits,
-            'data' => $data
-        ]);
-
-        return to_route('feature2.index')->with('answer', $number1 + $number2);
-    }
 }

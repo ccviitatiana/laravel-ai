@@ -4,6 +4,7 @@ use App\Http\Controllers\CreditController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Feature1Controller;
 use App\Http\Controllers\Feature2Controller;
+use App\Http\Controllers\WeatherController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/feature1', [Feature1Controller::class, 'calculate'])->name('feature1.calculate');
 
     Route::get('/feature2', [Feature2Controller::class, 'index'])->name('feature2.index');
-    Route::post('/feature2', [Feature2Controller::class, 'calculate'])->name('feature2.calculate');
+    Route::post('/feature2', [Feature2Controller::class, 'getWeatherInfo'])->name('feature2.getWeatherInfo');
 
     Route::get('/buy_credits', [CreditController::class, 'index'])->name('credit.index');
     Route::get('/buy_credits/success', [CreditController::class, 'success'])->name('credit.success');

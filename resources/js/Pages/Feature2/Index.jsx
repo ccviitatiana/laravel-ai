@@ -1,11 +1,14 @@
+import { Description, Field, Label, Textarea } from "@headlessui/react";
 import Feature from "@/Components/Feature";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import { useForm } from "@inertiajs/react";
+import clsx from "clsx";
 
 export default function Index({ feature, answer }) {
+
     const { data, setData, post, reset, error, processing } = useForm({
         number1: "",
         number2: "",
@@ -14,7 +17,7 @@ export default function Index({ feature, answer }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route("feature2.calculate"), {
+        post(route("feature1.calculate"), {
             onSuccess() {
                 reset();
             },
@@ -26,18 +29,6 @@ export default function Index({ feature, answer }) {
     return (
         <Feature feature={feature} answer={answer}>
             <form onSubmit={submit} className="p-8 grid grid-cols-2 gap-3">
-                <div className="">
-                    <InputLabel htmlFor="number1" value="Number 1" />
-                    <TextInput
-                        id="number1"
-                        type="text"
-                        name="number1"
-                        value={data.number1}
-                        className="mt-1 block w-full"
-                        onChange={(e) => setData("number1", e.target.value)}
-                    />
-                    <InputError message={error?.number1} className="mt-2" />
-                </div>
                 <div className="">
                     <InputLabel htmlFor="number2" value="Number 2" />
                     <TextInput
@@ -58,4 +49,20 @@ export default function Index({ feature, answer }) {
             </form>
         </Feature>
     );
+}
+
+{
+    /* <div className="w-full max-w-md px-4">
+      <Field>
+        <Label className="text-sm/6 font-medium text-black">Description</Label>
+        <Description className="text-sm/6 text-black/50">This will be shown under the product title.</Description>
+        <Textarea
+          className={clsx(
+            'mt-3 block w-full resize-none rounded-lg border-none bg-white/5 py-1.5 px-3 text-sm/6 text-black',
+            'focus:outline-none data-[focus]:outline-2 data-[focus]:-outline-offset-2 data-[focus]:outline-white/25'
+          )}
+          rows={3}
+        />
+      </Field>
+    </div> */
 }
