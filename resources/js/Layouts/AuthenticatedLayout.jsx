@@ -32,13 +32,13 @@ export default function Authenticated({ user, header, children }) {
                                     href={route("feature1.index")}
                                     active={route().current("feature1.index")}
                                 >
-                                    YUTA-ICHI
+                                    SUM
                                 </NavLink>
                                 <NavLink
                                     href={route("feature2.index")}
                                     active={route().current("feature2.index")}
                                 >
-                                    YUTA-NII
+                                    AI
                                 </NavLink>
                             </div>
                         </div>
@@ -173,13 +173,13 @@ export default function Authenticated({ user, header, children }) {
                             href={route("feature1.index")}
                             active={route().current("feature1.index")}
                         >
-                            Feature 1
+                            SUM
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
                             href={route("feature2.index")}
                             active={route().current("feature2.index")}
                         >
-                            Feature 2
+                            AI
                         </ResponsiveNavLink>
                     </div>
 

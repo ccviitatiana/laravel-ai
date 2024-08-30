@@ -105,10 +105,9 @@ services:
         image: ollama/ollama
         container_name: ollama_service
         ports:
-            - "11434:11434" # Example port for Ollama API
+            - "11434:11434"
         networks:
             - sail
-        # command: "pull qwen2:1.5b"
 
 networks:
     sail:

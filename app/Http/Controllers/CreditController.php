@@ -64,13 +64,13 @@ class CreditController extends Controller
 
     public function success()
     {
-        // ( ˶˘ ³˘(⋆❛ ہ ❛⋆)!♡
-        return to_route('credit.index')->with('success', 'You have successfully bought new credits.');
+        // ( ˶˘ ³˘(⋆❛ ہ ❛⋆)!♡    
+        return to_route('credit.index')->with(['success' => 'You have successfully bought new credits.']);
     }
 
     public function cancel()
     {
-        return to_route('credit.index')->with('error', 'There was an error in payment proces. Please try again.');
+        return to_route('credit.index')->with(['error' => 'There was an error in payment proces. Please try again.']);
     }
     public function webhook()
     {
