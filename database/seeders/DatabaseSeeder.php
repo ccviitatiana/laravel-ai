@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'id' => (string) Str::uuid(),
             'name' => 'Admin User',
-            'email' => 'lol@lol.com',
+            'email' => 'user1@user.com',
             'password' => bcrypt('password'),
         ]);
 
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             'route_name' => 'feature1.index',
             'name' => 'Sum it uppp!',
             'description' => 'Sum feature',
-            'required_credits' => 4,
+            'required_credits' => 3,
             'active' => true,
         ]);
 
@@ -39,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'route_name' => 'feature2.index',
             'name' => 'Ask anything to qwen2 ᕙ( •̀ ᗜ •́ )ᕗ',
             'description' => 'LLM feature',
-            'required_credits' => 3,
+            'required_credits' => 8,
             'active' => true,
         ]);
 

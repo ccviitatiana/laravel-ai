@@ -46,12 +46,17 @@ class Feature2Controller extends Controller
 
         $user->decreasedCredits($this->feature->required_credits);
 
+        $dataStore = ([
+            'user_prompt' => $request->input('user_prompt'),
+            'response_text' => $responseText
+        ]);
+
         $new_used_feature = new UsedFeature();
         $new_used_feature->id = (string) Str::uuid();
         $new_used_feature->feature_id = $this->feature->id;
         $new_used_feature->user_id = $user->id;
         $new_used_feature->credits = $this->feature->required_credits;
-        $new_used_feature->data = $data;
+        $new_used_feature->data = $dataStore;
         $new_used_feature->save();
 
         return to_route('feature2.index')->with('answer', $responseText);

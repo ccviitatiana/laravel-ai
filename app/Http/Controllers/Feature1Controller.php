@@ -43,14 +43,22 @@ class Feature1Controller extends Controller
 
         $user->decreasedCredits($this->feature->required_credits);
 
+        $response = $number1 + $number2;
+
+        $dataStore = ([
+            'number1' => $number1,
+            'number2' => $number2,
+            'response' => $response
+        ]);
+
         $new_used_feature = new UsedFeature();
         $new_used_feature->id = (string) Str::uuid();
         $new_used_feature->feature_id = $this->feature->id;
         $new_used_feature->user_id = $user->id;
         $new_used_feature->credits = $this->feature->required_credits;
-        $new_used_feature->data = $data;
+        $new_used_feature->data = $dataStore;
         $new_used_feature->save();
 
-        return to_route('feature1.index')->with('answer', $number1 + $number2);
+        return to_route('feature1.index')->with('answer', $response);
     }
 }

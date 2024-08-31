@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('available_credits')->default(10);
+            $table->integer('available_credits')->default(15);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -23,13 +23,17 @@ export default function Feature({ feature, answer, children }) {
             >
                 <Head title="Feature 1" />
                 <div className="py-12 flex items-center justify-center w-full">
-                    <div className="max-w-7xl bg-white rounded-[30px]">
-                        {answer && feature.route_name !== "feature2.index" ? (
+                    <div className="max-w-7xl">
+                        {answer && feature.route_name === "feature1.index" ? (
                             <div className="mb-3 py-3 px-5 rounded-2xl text-white bg-indigo-600">
                                 Result of calculation: {answer}
                             </div>
                         ) : null}
-                        <div className="bg-white w-full sm:w-[600px] md:w-[700px] lg:w-[800px] dark:bg-gray-800 overflow-hidden rounded-3xl 2xl:rounded-2xl relative">
+                        <div
+                            className={`bg-white w-full sm:w-[600px] md:w-[700px] lg:w-[800px] dark:bg-gray-800 overflow-hidden relative ${
+                                answer && feature.route_name === "feature2.index" ? "rounded-t-3xl" : "rounded-3xl"
+                            }`}
+                        >
                             {parseInt(feature.required_credits) >
                             availableCredits ? (
                                 <div className="absolute left-0 top-0 right-0 bottom-0 z-20 flex flex-col items-center justify-center bg-white/70 gap-3">
@@ -70,14 +74,14 @@ export default function Feature({ feature, answer, children }) {
                             </div>
                             {children}
                         </div>
-                        {answer && (
-                            <div className="w-full sm:w-[600px] md:w-[700px] lg:w-[800px] mb-3 py-3 px-5 rounded-3xl p-4 bg-gray-100 ">
+                        {answer && feature.route_name === "feature2.index" ? (
+                            <div className="w-full sm:w-[600px] md:w-[700px] lg:w-[800px] mb-3 py-3 px-5 rounded-b-3xl rounde p-4 bg-gray-100 pt-4">
                                 <h2 className="text-xl font-semibold">
-                                    Answer:
+                                    Response:
                                 </h2>
-                                <p>{answer}</p>
+                                <p className="p-2">{answer}</p>
                             </div>
-                        )}
+                        ): null}
                     </div>
                 </div>
             </AuthenticatedLayout>
