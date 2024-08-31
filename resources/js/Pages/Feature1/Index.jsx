@@ -18,9 +18,6 @@ export default function Index({ feature, answer }) {
             onSuccess() {
                 reset();
             },
-            onError(errors) {
-                console.log(errors);
-            },
         });
     };
     return (

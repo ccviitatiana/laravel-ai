@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Feature;
 use App\Models\Package;
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -58,7 +57,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Package::create([
-            'name' => 'Goffy',
+            'name' => 'Ultimate',
             'price' => 55.99,
             'credits' => 500,
             'description' => 'SUPEERヾ(｡✪ω✪｡)ｼ'

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Observers\UserObserver;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
@@ -54,21 +53,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-        /**
-     * Boot function from Laravel.
-     */
-    // protected static function boot()
-    // {
-    //     parent::boot();
-
-    //     // Automatically generate UUID for the id field
-    //     static::creating(function ($model) {
-    //         if (empty($model->{$model->getKeyName()})) {
-    //             $model->{$model->getKeyName()} = (string) Str::uuid();
-    //         }
-    //     });
-    // }
 
     public function decreasedCredits(int $credits): self
     {

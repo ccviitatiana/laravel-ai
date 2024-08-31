@@ -26,9 +26,6 @@ export default function Index({ feature, initialAnswer }) {
                     setAnswer(newAnswer);
                     setIsPending(false);
                 },
-                onError: (errors) => {
-                    console.log(errors);
-                },
             });
 
             reset();

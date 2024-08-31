@@ -5,11 +5,6 @@ export default function Feature({ feature, answer, children }) {
     const { auth } = usePage().props;
 
     const availableCredits = auth.user.available_credits;
-    console.log(
-        auth.user,
-        availableCredits,
-        parseInt(feature.required_credits)
-    );
 
     return (
         <>

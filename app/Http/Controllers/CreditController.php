@@ -57,7 +57,6 @@ class CreditController extends Controller
         $transaction->save();
 
         return redirect()->to($checkout_session->url);
-        // return redirect()->route('credit.success', ['session_id' => $checkout_session->id]);
     }
 
     public function success()
