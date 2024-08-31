@@ -19,7 +19,7 @@ export default function Index({ feature, answer }) {
                 reset();
             },
             onError(errors) {
-                console.log(errors); // To check if the errors are correctly populated
+                console.log(errors);
             },
         });
     };

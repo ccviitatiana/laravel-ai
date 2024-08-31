@@ -1,6 +1,6 @@
 import { usePage } from "@inertiajs/react";
 
-export default function CreditPricingCards({ packages, features }) {
+export default function CreditPricingCards({ packages }) {
     const { csrf_token } = usePage().props;
 
     return (
@@ -29,19 +29,8 @@ export default function CreditPricingCards({ packages, features }) {
                                     /{p.credits} credits
                                 </span>
                             </div>
-                            <ul
-                                role="list"
-                                className="mb-8 space-y-4 text-left"
-                            >
-                                {features.map((feature) => (
-                                    <li
-                                        key={feature.id}
-                                        className="flex items-center space-x-3"
-                                    >
-                                        <span>{feature.name}</span>
-                                    </li>
-                                ))}
-                            </ul>
+
+                            <span className="mb-8 text-lg">{p.description}</span>
                             <form
                                 action={route("credit.buy", p)}
                                 method="post"

@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/feature1', [Feature1Controller::class, 'calculate'])->name('feature1.calculate');
 
     Route::get('/feature2', [Feature2Controller::class, 'index'])->name('feature2.index');
-    Route::post('/feature2', [Feature2Controller::class, 'getWeatherInfo'])->name('feature2.getWeatherInfo');
+    Route::post('/feature2', [Feature2Controller::class, 'ollamaResponse'])->name('feature2.ollamaResponse');
 
     Route::get('/buy_credits', [CreditController::class, 'index'])->name('credit.index');
     Route::get('/buy_credits/success', [CreditController::class, 'success'])->name('credit.success');

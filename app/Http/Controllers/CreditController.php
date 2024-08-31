@@ -9,8 +9,6 @@ use App\Models\Package;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Inertia\Inertia;
-use Stripe\Stripe;
 
 class CreditController extends Controller
 {

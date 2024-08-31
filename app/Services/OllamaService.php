@@ -9,9 +9,8 @@ class OllamaService
 {
     public function ask(Request $request)
     {
-
-        $response = Ollama::agent($request->question)
-            ->prompt($request->role_description)
+        $response = Ollama::agent('You are an Ai assitant')
+            ->prompt($request->input('user_prompt'))
             ->model('qwen2:1.5b')
             ->options(['temperature' => 0.8])
             ->stream(false)

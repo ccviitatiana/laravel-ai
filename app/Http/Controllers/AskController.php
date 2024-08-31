@@ -15,16 +15,16 @@ class AskController extends Controller
         $this->ollamaService = $ollamaService;
     }
 
-    // public function index(Request $request) {
-        
-    // }
-
     public function __invoke(Request $request)
     {
         $request->validate([
-            'role_description' => 'required|string|min:5|max:500',
             'question' => 'required|string|min:5|max:500',
         ]); 
+
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
 
         $response = $this->ollamaService->ask($request);
 

@@ -21,19 +21,6 @@ class Transaction extends Model
 
     public $incrementing = false;
 
-
-    // protected static function boot()
-    // {
-    //     parent::boot();
-
-    //     // Automatically assign a UUID to the 'id' attribute
-    //     static::creating(function ($model) {
-    //         if (empty($model->{$model->getKeyName()})) {
-    //             $model->{$model->getKeyName()} = (string) Str::uuid();
-    //         }
-    //     });
-    // }
-
     public function user() {
         return $this->belongsTo(User::class);
     }
